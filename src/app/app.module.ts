@@ -15,6 +15,7 @@ import { HeaderComponent } from "./layout/header.component";
 import { AdminDashboardComponent } from "./admin/admin-dashboard/admin-dashboard.component";
 import { UserDashboardComponent } from "./user/user-dashboard/user-dashboard.component";
 import { UserRegistrationComponent } from "./admin/user-registration/user-registration.component";
+import { ErrorsComponent } from "./shared/input-errors.component";
 
 let routes: Routes = [
   { path: "", component: LoginComponent },
@@ -24,6 +25,7 @@ let routes: Routes = [
     component: HomeComponent,
     children: [
       {
+        // component less routing
         path: "user",
         children: [{ path: "dashboard", component: UserDashboardComponent }]
       },
@@ -31,6 +33,7 @@ let routes: Routes = [
       {
         path: "admin",
         children: [
+          { path: "", redirectTo: "/home/admin/dashboard", pathMatch:"full" },
           { path: "dashboard", component: AdminDashboardComponent },
           { path: "user-registration", component: UserRegistrationComponent }
         ]
@@ -50,7 +53,8 @@ let routes: Routes = [
     HeaderComponent,
     AdminDashboardComponent,
     UserDashboardComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    ErrorsComponent
   ],
   imports: [
     BrowserModule,
