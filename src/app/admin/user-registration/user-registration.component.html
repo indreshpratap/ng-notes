@@ -6,10 +6,9 @@
       <form #reg="ngForm">
         <div class="form-group">
           <label class="form-label" for="input-example-1">Name</label>
-          <input name="name" pattern="\d{1,10}" [(ngModel)]="regform.name" required minlength="10" class="form-input" type="text" id="input-example-1"
+          <input name="name" [(ngModel)]="regform.name" required minlength="10" class="form-input" type="text" id="input-example-1"
             placeholder="Name">
-            <app-errors [msgs]="{pattern:'Only digits are allowed'}" [errors]="reg.controls.name?.errors"></app-errors>
-          
+            <app-errors [errors]="reg.controls.name?.errors"></app-errors>
         </div>
         <div class="form-group">
           <label class="form-label" for="input-example-1">Email</label>
@@ -31,14 +30,15 @@
           <app-errors [msgs]="{pattern:'Only characters are allowed',required:'Input address to get your items'}" [errors]="reg.controls.address?.errors"></app-errors>
         </div>
 
-        <!-- <button [disabled]="reg.invalid" (click)="save(reg)">Save</button> -->
-        <button  (click)="save(reg)">Save</button>
+        <button [disabled]="reg.invalid" (click)="save(reg)">Save</button>
+        <!-- <button  (click)="save(reg)">Save</button> -->
 
       </form>
 
-      <pre>
-      {{regform|json}}
-    </pre> Form valid: {{reg.valid}} Form invalid: {{reg.invalid}} {{reg.controls.name?.errors|json}}
+      <!-- <pre> -->
+        <!-- uncomment below line to see form data -->
+      <!-- {{regform|json}} -->
+    <!-- </pre> Form valid: {{reg.valid}} Form invalid: {{reg.invalid}} {{reg.controls.name?.errors|json}} -->
     </div>
   </div>
 </div>

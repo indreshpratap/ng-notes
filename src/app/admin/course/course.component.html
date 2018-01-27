@@ -1,0 +1,49 @@
+<div>
+  <h3>Course Management</h3>
+  <div class="columns">
+    <div class="column col-4">
+      <form #courseform="ngForm" class="form-horizontal">
+        <div class="form-group">
+          <div class="col-3">
+            <label class="form-label" for="input-example-1">Course Name</label>
+          </div>
+          <div class="col-9">
+            <input class="form-input" name="courseName" ngModel type="text" id="input-example-1" placeholder="Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-3">
+            <label class="form-label" for="input-example-1">Course type</label>
+          </div>
+          <div class="col-9">
+            <select class="form-select" name="courseType" ngModel>
+              <option value="">--Select type--</option>
+              <option value="1">Open for all</option>
+              <option value="2">Closed group</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-3">
+            <label class="form-label" for="input-example-1">Tags</label>
+          </div>
+          <div class="col-9">
+            <div class="input-group">
+              <input type="text" (change)="validateTag($event.target.value)" required name="tagInput" ngModel class="form-input" placeholder="Tags">
+              <button class="btn input-group-btn" (click)="addToTags(courseform.controls.tagInput)">+</button>
+            </div>
+
+            <span class="chip" *ngFor="let t of tags;let i = index;">
+              {{t}}
+              <a (click)="removeTag(i)" class="btn btn-clear" aria-label="Close" role="button"></a>
+            </span>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary" (click)="saveCourse(courseform)">Save course</button>
+        </div>
+        <!-- form structure -->
+      </form>
+    </div>
+  </div>
+</div>

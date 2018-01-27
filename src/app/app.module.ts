@@ -16,6 +16,7 @@ import { AdminDashboardComponent } from "./admin/admin-dashboard/admin-dashboard
 import { UserDashboardComponent } from "./user/user-dashboard/user-dashboard.component";
 import { UserRegistrationComponent } from "./admin/user-registration/user-registration.component";
 import { ErrorsComponent } from "./shared/input-errors.component";
+import { CourseComponent } from './admin/course/course.component';
 
 let routes: Routes = [
   { path: "", component: LoginComponent },
@@ -35,7 +36,8 @@ let routes: Routes = [
         children: [
           { path: "", redirectTo: "/home/admin/dashboard", pathMatch:"full" },
           { path: "dashboard", component: AdminDashboardComponent },
-          { path: "user-registration", component: UserRegistrationComponent }
+          { path: "user-registration", component: UserRegistrationComponent },
+          { path: "course", component: CourseComponent },
         ]
       }
     ]
@@ -54,7 +56,8 @@ let routes: Routes = [
     AdminDashboardComponent,
     UserDashboardComponent,
     UserRegistrationComponent,
-    ErrorsComponent
+    ErrorsComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
