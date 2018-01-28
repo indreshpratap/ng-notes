@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
       { title: "Admin Dash", link: this.HOME_ADMIN+"dashboard" },
       { title: "User Reg", link: this.HOME_ADMIN+"user-registration"},
       { title: "Course", link: this.HOME_ADMIN+"course" },
-    //   { title: "", link: "" },
+      { title: "Course content", link: this.HOME_ADMIN+"course-content"},
     //   { title: "", link: "" },
     //   { title: "", link: "" },
     //   { title: "", link: "" },

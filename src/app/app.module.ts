@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { AppComponent } from "./app.component";
 import { environment } from "../environments/environment";
@@ -17,6 +17,7 @@ import { UserDashboardComponent } from "./user/user-dashboard/user-dashboard.com
 import { UserRegistrationComponent } from "./admin/user-registration/user-registration.component";
 import { ErrorsComponent } from "./shared/input-errors.component";
 import { CourseComponent } from './admin/course/course.component';
+import { CourseContentComponent } from './admin/course-content/course-content.component';
 
 let routes: Routes = [
   { path: "", component: LoginComponent },
@@ -38,6 +39,7 @@ let routes: Routes = [
           { path: "dashboard", component: AdminDashboardComponent },
           { path: "user-registration", component: UserRegistrationComponent },
           { path: "course", component: CourseComponent },
+          { path: "course-content", component: CourseContentComponent },
         ]
       }
     ]
@@ -57,12 +59,14 @@ let routes: Routes = [
     UserDashboardComponent,
     UserRegistrationComponent,
     ErrorsComponent,
-    CourseComponent
+    CourseComponent,
+    CourseContentComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     MatToolbarModule,
     MatButtonModule,

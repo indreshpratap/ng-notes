@@ -29,7 +29,7 @@
           </div>
           <div class="col-9">
             <div class="input-group">
-              <input type="text" (change)="validateTag($event.target.value)" required name="tagInput" ngModel class="form-input" placeholder="Tags">
+              <input type="text" (change)="validateTag($event.target.value)" name="tagInput" ngModel class="form-input" placeholder="Tags">
               <button class="btn input-group-btn" (click)="addToTags(courseform.controls.tagInput)">+</button>
             </div>
 

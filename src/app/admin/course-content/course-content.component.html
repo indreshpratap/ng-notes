@@ -1,0 +1,62 @@
+<div>
+  <div class="columns">
+    <div class="column col-3">&nbsp;</div>
+    <div class="column col-6">
+        <h3>Course Content Management</h3>
+      <form [formGroup]="contentFormGroup" class="form-horizontal">
+        <div class="form-group">
+          <div class="col-4">
+            <label class="form-label">Select Course</label>
+          </div>
+          <div class="col-8">
+            <select class="form-select" formControlName="course">
+              <option value="">--Select Course--</option>
+              <option value="1">Javascript</option>
+              <option value="2">Angluar</option>
+            </select>
+            <app-errors [errors]="contentFormGroup.get('course').errors"></app-errors>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-4">
+            <label class="form-label">Chapter Title</label>
+          </div>
+          <div class="col-8">
+            <input type="text" class="form-input" formControlName="title">
+            <app-errors [errors]="contentFormGroup.get('title').errors"></app-errors>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-4">
+            <label class="form-label">Chapter Sequence</label>
+          </div>
+          <div class="col-8">
+            <input type="number" class="form-input" formControlName="seq">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-4">
+            <label class="form-label">Chapter Content</label>
+          </div>
+          <div class="col-8">
+            <textarea class="form-input" formControlName="content"></textarea>
+            <app-errors [errors]="contentFormGroup.get('content').errors"></app-errors>
+          </div>
+        </div>
+
+{{contentFormGroup.get('content').errors|json}}
+        <div class="text-center">
+          <button class="btn btn-primary" [disabled]="contentFormGroup.invalid" (click)="saveCourseContent()">Save course content</button>
+          <button class="btn" (click)="disableIt()">Disable</button>
+          <button class="btn" (click)="enableIt()">Enable</button>
+          <button class="btn" (click)="fillIt()">Fill the form</button>
+        </div>
+     
+        <pre>{{contentFormGroup.value|json}} </pre>
+      </form>
+    </div>
+  </div>
+</div>
