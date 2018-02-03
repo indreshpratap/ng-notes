@@ -34,6 +34,7 @@ export class HeaderComponent implements OnInit {
       { title: "User Reg", link: this.HOME_ADMIN+"user-registration"},
       { title: "Course", link: this.HOME_ADMIN+"course" },
       { title: "Course content", link: this.HOME_ADMIN+"course-content"},
+      { title: "Questions", link: this.HOME_ADMIN+"question-bank"},
     //   { title: "", link: "" },
     //   { title: "", link: "" },
     //   { title: "", link: "" },

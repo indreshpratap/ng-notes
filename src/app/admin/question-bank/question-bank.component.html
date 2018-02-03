@@ -1,0 +1,79 @@
+<div>
+  <div class="columns">
+    <div class="column col-3">&nbsp;</div>
+    <div class="column col-6">
+        <h3>Question Bank</h3>
+      <form [formGroup]="queForm" class="form-horizontal">
+        <div class="form-group">
+          <div class="col-4">
+            <label class="form-label">Select Course</label>
+          </div>
+          <div class="col-8">
+            <select class="form-select" formControlName="course">
+              <option value="">--Select Course--</option>
+              <option value="1">Javascript</option>
+              <option value="2">Angluar</option>
+            </select>
+            <app-errors [errors]="queForm.get('course').errors"></app-errors>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-4">
+            <label class="form-label">Stage</label>
+          </div>
+          <div class="col-8">
+            <input type="text" class="form-input" formControlName="stage">
+            <app-errors [errors]="queForm.get('stage').errors"></app-errors>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-4">
+            <label class="form-label">Description</label>
+          </div>
+          <div class="col-8">
+            <input type="text" class="form-input" formControlName="description">
+        
+          </div>
+        </div>
+
+        <div>
+          <button (click)="addQuestion()">ADD</button>
+        </div>
+       
+
+        <div class="columns">
+        <div class="column col-12">
+          <table formArrayName="questions">
+            <tbody>
+              <tr *ngFor="let que of questionArray.controls;let i=index" [formGroupName]="i">
+                <td> <input type="text" formControlName="question"> </td>
+                <td> <input type="text" formControlName="option1"><input type="checkbox" formControlName="correct1"> </td>
+                <td> <input type="text" formControlName="option2"><input type="checkbox" formControlName="correct2"> </td>
+                <td> <input type="text" formControlName="option3"><input type="checkbox" formControlName="correct3"> </td>
+                <td> <input type="text" formControlName="option4"><input type="checkbox" formControlName="correct4"> </td>
+                <td><button (click)="remove(i)">remove</button></td>
+              
+               
+              </tr>
+            </tbody>
+          </table>
+        </div>  
+        </div>
+
+
+       
+
+
+        <!-- <div class="text-center">
+          <button class="btn btn-primary" [disabled]="contentFormGroup.invalid" (click)="saveCourseContent()">Save course content</button>
+          <button class="btn" (click)="disableIt()">Disable</button>
+          <button class="btn" (click)="enableIt()">Enable</button>
+          <button class="btn" (click)="fillIt()">Fill the form</button>
+        </div> -->
+     
+        <pre>{{queForm.value|json}} </pre>
+      </form>
+    </div>
+  </div>
+</div>

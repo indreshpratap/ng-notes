@@ -18,6 +18,7 @@ import { UserRegistrationComponent } from "./admin/user-registration/user-regist
 import { ErrorsComponent } from "./shared/input-errors.component";
 import { CourseComponent } from './admin/course/course.component';
 import { CourseContentComponent } from './admin/course-content/course-content.component';
+import { QuestionBankComponent } from './admin/question-bank/question-bank.component';
 
 let routes: Routes = [
   { path: "", component: LoginComponent },
@@ -40,6 +41,7 @@ let routes: Routes = [
           { path: "user-registration", component: UserRegistrationComponent },
           { path: "course", component: CourseComponent },
           { path: "course-content", component: CourseContentComponent },
+          { path: "question-bank", component: QuestionBankComponent },
         ]
       }
     ]
@@ -60,7 +62,8 @@ let routes: Routes = [
     UserRegistrationComponent,
     ErrorsComponent,
     CourseComponent,
-    CourseContentComponent
+    CourseContentComponent,
+    QuestionBankComponent
   ],
   imports: [
     BrowserModule,
