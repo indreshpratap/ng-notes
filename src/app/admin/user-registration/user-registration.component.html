@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
           <label class="form-label">Address</label>
-          <input required minlength="50" pattern="[a-zA-Z]" name="address" class="form-input" type="text" id="input-example-1" placeholder="Address" [(ngModel)]="regform.address">
+          <input required minlength="50"  name="address" class="form-input" type="text" id="input-example-1" placeholder="Address" [(ngModel)]="regform.address">
           <app-errors [msgs]="{pattern:'Only characters are allowed',required:'Input address to get your items'}" [errors]="reg.controls.address?.errors"></app-errors>
         </div>
 
