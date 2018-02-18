@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { CourseService } from "../course.service";
 
 @Component({
   selector: "app-course",
@@ -7,7 +8,8 @@ import { Component, OnInit } from "@angular/core";
 })
 export class CourseComponent implements OnInit {
   tags = [];
-  constructor() {}
+  //dependency injection of courseservice to this component
+  constructor(private service: CourseService) {}
 
   ngOnInit() {}
 
@@ -35,9 +37,11 @@ export class CourseComponent implements OnInit {
       data.tags = this.tags;
       // remove unwanted property
       delete data.tagInput;
-
+// calling save course function of CourseService
+      this.service.saveCourse(data);
+     console.log(this.service.getAllCourses());
       alert("Form Saved");
-      console.log(data);
+     
     }
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { NotesValidator } from "../../utils/notes-validators";
+import { CourseService } from "../course.service";
 
 @Component({
   selector: "app-course-content",
@@ -9,10 +10,12 @@ import { NotesValidator } from "../../utils/notes-validators";
 })
 export class CourseContentComponent implements OnInit {
   contentFormGroup: FormGroup;
-  constructor() {}
+  courses;
+  constructor(private service: CourseService) {}
 
   ngOnInit() {
     this.initilizeForm();
+    this.courses = this.service.getAllCourses();
   }
 
   initilizeForm() {
