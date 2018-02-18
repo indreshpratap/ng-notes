@@ -3,6 +3,7 @@ import { FormGroup } from "@angular/forms";
 import { FormBuilder } from "@angular/forms";
 import { Validators } from "@angular/forms";
 import { FormArray } from "@angular/forms";
+import { NotesValidator } from "../../utils/notes-validators";
 
 @Component({
   selector: "app-question-bank",
@@ -41,12 +42,16 @@ export class QuestionBankComponent implements OnInit {
       correct2: [false],
       correct3: [false],
       correct4: [false]
-    });
+    },{validator:[NotesValidator.oneOptionRequired]});
 
     this.questionArray.push(que);
   }
 
   remove(indx) {
     this.questionArray.removeAt(indx);
+  }
+
+  save() {
+    console.log(this.queForm.value);
   }
 }

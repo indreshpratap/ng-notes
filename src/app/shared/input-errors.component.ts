@@ -9,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
     <span *ngIf="errors.maxlength">Maximum {{errors.maxlength.requiredLength}} chararcters needed</span>
     <span *ngIf="errors.pattern">{{msgs && msgs.pattern?msgs.pattern:"Pattern mismatch"}}</span>
     <span *ngIf="errors.lowercaseonly">{{ (label?label:'Field')}} only lowercase chararacters allowed</span>
+    <span *ngIf="errors.oneoptionrequired">Atleast one correct answer is required</span>
     </div>
     `
     

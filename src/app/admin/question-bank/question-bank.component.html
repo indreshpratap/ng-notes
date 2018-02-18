@@ -33,31 +33,37 @@
           </div>
           <div class="col-8">
             <input type="text" class="form-input" formControlName="description">
-        
+            
           </div>
         </div>
-
+        
         <div>
           <button (click)="addQuestion()">ADD</button>
         </div>
-       
-
+        
+        
         <div class="columns">
-        <div class="column col-12">
-          <table formArrayName="questions">
-            <tbody>
-              <tr *ngFor="let que of questionArray.controls;let i=index" [formGroupName]="i">
-                <td> <input type="text" formControlName="question"> </td>
-                <td> <input type="text" formControlName="option1"><input type="checkbox" formControlName="correct1"> </td>
-                <td> <input type="text" formControlName="option2"><input type="checkbox" formControlName="correct2"> </td>
-                <td> <input type="text" formControlName="option3"><input type="checkbox" formControlName="correct3"> </td>
-                <td> <input type="text" formControlName="option4"><input type="checkbox" formControlName="correct4"> </td>
-                <td><button (click)="remove(i)">remove</button></td>
+          <div class="column col-12">
+            <table formArrayName="questions">
+              <tbody>
+                <tr *ngFor="let que of questionArray.controls;let i=index" [formGroupName]="i">
+                  <td> <input type="text" formControlName="question"> </td>
+                  <td> <input type="text" formControlName="option1"><input type="checkbox" formControlName="correct1"> </td>
+                  <td> <input type="text" formControlName="option2"><input type="checkbox" formControlName="correct2"> </td>
+                  <td> <input type="text" formControlName="option3"><input type="checkbox" formControlName="correct3"> </td>
+                  <td> <input type="text" formControlName="option4"><input type="checkbox" formControlName="correct4"> </td>
+                  <td><button (click)="remove(i)">remove</button>
+                    <app-errors [errors]="que.errors"></app-errors>
+                   
+                  </td>
               
                
               </tr>
             </tbody>
           </table>
+        </div>
+        <div class="column">
+          <button (click)="save()"> Save</button>
         </div>  
         </div>
 
