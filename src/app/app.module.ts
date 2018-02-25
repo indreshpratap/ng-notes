@@ -20,7 +20,7 @@ import { CourseComponent } from './admin/course/course.component';
 import { CourseContentComponent } from './admin/course-content/course-content.component';
 import { QuestionBankComponent } from './admin/question-bank/question-bank.component';
 import { CourseService } from "./admin/course.service";
-
+import {StorageService} from "./storage.service";
 let routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "login", redirectTo: "", pathMatch: "full" },
@@ -78,7 +78,7 @@ let routes: Routes = [
       enabled: environment.production
     })
   ],
-  providers: [CourseService],
+  providers: [CourseService,StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
