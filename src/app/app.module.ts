@@ -21,9 +21,11 @@ import { CourseContentComponent } from './admin/course-content/course-content.co
 import { QuestionBankComponent } from './admin/question-bank/question-bank.component';
 import { CourseService } from "./admin/course.service";
 import {StorageService} from "./storage.service";
+import { ObservablesComponent } from './observables/observables.component';
 let routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "login", redirectTo: "", pathMatch: "full" },
+  { path: "obser", component:ObservablesComponent },
   {
     path: "home",
     component: HomeComponent,
@@ -64,7 +66,8 @@ let routes: Routes = [
     ErrorsComponent,
     CourseComponent,
     CourseContentComponent,
-    QuestionBankComponent
+    QuestionBankComponent,
+    ObservablesComponent
   ],
   imports: [
     BrowserModule,

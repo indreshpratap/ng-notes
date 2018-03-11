@@ -1,7 +1,11 @@
-<div>
-  <h3>Course Management</h3>
-  <div class="columns">
-    <div class="column col-4">
+<div class="columns mt-2">
+  <div class="column col-3">&nbsp;</div>
+<div class="panel column col-5 bg-ws col-sm-12">
+  <div class="panel-header">
+    <h4 class="panel-title">Course</h4>
+</div>
+  <div class="panel-body">
+    <!-- <div class="column col-5"> -->
       <form #courseform="ngForm" class="form-horizontal">
         <div class="form-group">
           <div class="col-3">
@@ -31,9 +35,9 @@
             <div class="input-group">
               <input type="text" (change)="validateTag($event.target.value)" name="tagInput" ngModel class="form-input" placeholder="Tags">
               <button class="btn input-group-btn" (click)="addToTags(courseform.controls.tagInput)">+</button>
-            </div>
+            </div> 
 
-            <span class="chip" *ngFor="let t of tags;let i = index;">
+            <span class="chip bg-dark" *ngFor="let t of tags;let i = index;">
               {{t}}
               <a (click)="removeTag(i)" class="btn btn-clear" aria-label="Close" role="button"></a>
             </span>
@@ -44,6 +48,7 @@
         </div>
         <!-- form structure -->
       </form>
-    </div>
+    <!-- </div> -->
   </div>
+</div>
 </div>

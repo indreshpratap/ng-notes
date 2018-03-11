@@ -34,14 +34,15 @@ export class CourseComponent implements OnInit {
   saveCourse(courseform) {
     if (courseform.valid) {
       var data = courseform.value;
-      data.tags = this.tags;
+      data.tags = [...this.tags];
       // remove unwanted property
       delete data.tagInput;
-// calling save course function of CourseService
+      // calling save course function of CourseService
       this.service.saveCourse(data);
-     console.log(this.service.getAllCourses());
+    //  console.log(this.service.getAllCourses());
       alert("Form Saved");
-     
+      courseform.reset();
+      this.tags = [];
     }
   }
 }
