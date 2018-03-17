@@ -1,6 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule,ReactiveFormsModule } from "@angular/forms";
+import {HttpClientModule} from '@angular/common/http';
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { AppComponent } from "./app.component";
 import { environment } from "../environments/environment";
@@ -22,6 +23,8 @@ import { QuestionBankComponent } from './admin/question-bank/question-bank.compo
 import { CourseService } from "./admin/course.service";
 import {StorageService} from "./storage.service";
 import { ObservablesComponent } from './observables/observables.component';
+
+import 'rxjs/Rx';
 let routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "login", redirectTo: "", pathMatch: "full" },
@@ -79,7 +82,8 @@ let routes: Routes = [
     MatButtonModule,
     ServiceWorkerModule.register("/ngsw-worker.js", {
       enabled: environment.production
-    })
+    }),
+    HttpClientModule
   ],
   providers: [CourseService,StorageService],
   bootstrap: [AppComponent]

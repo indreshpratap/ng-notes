@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor() { }
+  listOfUsers;
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get(environment.apiPath + "admin/get-users")
+    .subscribe((response:any)=>{
+     this.listOfUsers = response;
+    });
   }
 
 }
