@@ -11,7 +11,7 @@
           <div class="col-8">
             <select class="form-select" formControlName="course">
               <option value="">--Select Course--</option>
-              <option *ngFor="let c of courses" [value]="c.id">{{c.courseName}}</option>
+              <option *ngFor="let c of courses" [value]="c._id">{{c.courseName}}</option>
              
             </select>
             <app-errors [errors]="contentFormGroup.get('course').errors"></app-errors>

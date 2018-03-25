@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CourseService } from "../course.service";
-
+import { HttpClient } from "@angular/common/http";
+import {environment} from '../../../environments/environment';
 @Component({
   selector: "app-course",
   templateUrl: "./course.component.html",
@@ -9,7 +10,7 @@ import { CourseService } from "../course.service";
 export class CourseComponent implements OnInit {
   tags = [];
   //dependency injection of courseservice to this component
-  constructor(private service: CourseService) {}
+  constructor(private service: CourseService,private http: HttpClient) {}
 
   ngOnInit() {}
 
@@ -39,10 +40,16 @@ export class CourseComponent implements OnInit {
       delete data.tagInput;
       // calling save course function of CourseService
       this.service.saveCourse(data);
-    //  console.log(this.service.getAllCourses());
-      alert("Form Saved");
+
+      this.http.post(environment.apiPath+"admin/reg-course",data).subscribe((res:any)=>{
+        if(res.status===200) {
+           alert("Form Saved");
       courseform.reset();
       this.tags = [];
+        }
+      });
+    //  console.log(this.service.getAllCourses());
+     
     }
   }
 }

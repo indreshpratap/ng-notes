@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { NotesValidator } from "../../utils/notes-validators";
 import { CourseService } from "../course.service";
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: "app-course-content",
@@ -11,11 +13,14 @@ import { CourseService } from "../course.service";
 export class CourseContentComponent implements OnInit {
   contentFormGroup: FormGroup;
   courses;
-  constructor(private service: CourseService) {}
+  constructor(private service: CourseService,private http:HttpClient) {}
 
   ngOnInit() {
     this.initilizeForm();
-    this.courses = this.service.getAllCourses();
+    // this.courses = this.service.getAllCourses();
+    this.http.get(environment.apiPath+"admin/get-course").subscribe((res:any)=>{
+      this.courses = res.data;
+    });
   }
 
   initilizeForm() {

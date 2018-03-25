@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiPath:'http://localhost:3000/api/'
+  apiPath:'http://139.59.29.57/ngnotes/api/'
 };
