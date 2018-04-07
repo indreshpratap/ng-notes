@@ -19,4 +19,17 @@ export class StorageService {
     clear(key:string) {
         localStorage.removeItem(key);
     }
+
+    isAdmin(){
+        return this.getRole()==='admin';
+    }
+    isUser() {
+        return this.getRole()==='user';
+    }
+
+    private getRole(){
+        let data = this.fetchJSON("user");
+        return data?data.role:null;
+        }
+    
 }

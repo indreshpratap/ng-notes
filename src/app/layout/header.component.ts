@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { StorageService } from "../storage.service";
 
 @Component({
   selector: "app-header",
@@ -7,6 +9,7 @@ import { Component, OnInit } from "@angular/core";
   <mat-toolbar-row>
     <span>NG Notes</span>
     <a *ngFor="let l of links" class="btn btn-link" [routerLink]="l.link">{{l.title}}</a>
+    <a class="btn btn-link" (click)="doLogout()">Logout</a>
    <!-- <a  mat-button routerLink="/home/admin/dashboard">Admin Dashboard</a>
     <a  mat-button routerLink="/home/admin/user-registration">User Registration</a>
     <a  mat-button routerLink="/home/admin/course">Course Registration</a> -->
@@ -22,7 +25,7 @@ export class HeaderComponent implements OnInit {
   HOME_ADMIN: string;
   HOME_USER: string;
 
-  constructor() {}
+  constructor(private router:Router,private storage:StorageService) {}
 
   ngOnInit() {
     this.HOME = "/home/";
@@ -42,5 +45,10 @@ export class HeaderComponent implements OnInit {
     //   { title: "", link: "" },
     //   { title: "", link: "" }
     ];
+  }
+
+  doLogout(){
+    this.storage.clear("user");
+    this.router.navigate(["/"]);
   }
 }

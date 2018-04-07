@@ -23,6 +23,7 @@ import { ObservablesComponent } from './observables/observables.component';
 import 'rxjs/Rx';
 import { AdminModule } from "./admin/admin.module";
 import { SharedModule } from "./shared/shared.module";
+import { AdminAuthGuard } from "./gaurds/admin.auth.gaurd";
 let routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "login", redirectTo: "", pathMatch: "full" },
@@ -37,7 +38,7 @@ let routes: Routes = [
         children: [{ path: "dashboard", component: UserDashboardComponent }]
       },
       {
-        path:"admin",loadChildren:"app/admin/admin.module#AdminModule"
+        path:"admin",loadChildren:"app/admin/admin.module#AdminModule",canActivateChild:[AdminAuthGuard]
       }
       
 
@@ -73,7 +74,7 @@ let routes: Routes = [
    
    //  AdminModule  // eager loading 
   ],
-  providers: [StorageService],
+  providers: [StorageService,AdminAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,7 +1,8 @@
 <h3>App Login</h3>
-<p>
+<form #login="ngForm" (ngSubmit)="doLogin(login)">
   Username:
-  <input type="text"> Password:
-  <input type="text">
-</p>
-<a routerLink="/home"> Login</a>
+
+  <input name="username" ngModel="admin" type="text"> Password:
+  <input name="password"  ngModel="Admin@123" type="Password">
+  <button>Login</button>
+</form>
